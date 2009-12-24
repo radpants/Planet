@@ -1,0 +1,7 @@
+<h2>Star Map</h2>
+<div id="star_map">
+	<% @stars.each do |star| %>
+		<a href="<%= star.url %>">
+		<img src="/_img/star_<%= star.color %>.png" style="position:absolute;left:<%=star.x_coordinate-6%>px;top:<%=star.y_coordinate-6%>px;opacity:<%=star.brightness%>" alt="<%= star.get_info %>" title="<%= star.get_info %>"/>
+	<% end %>
+</div>

@@ -1,0 +1,8 @@
+<a href='/galaxy'>Galaxy</a> &gt; 
+<a href='/galaxy/<%= @arm %>'><%= @arm %></a> &gt;
+<a href='/galaxy/<%= @arm %>/<%= @sector %>'><%= @sector %></a>
+<ul>
+	<% @clusters.each do |cluster| %>
+		<li><a href="/galaxy/<%= @arm %>/<%= @sector %>/<%= cluster %>"><%= cluster %></a></li>
+	<% end %>
+</ul>

@@ -1,0 +1,13 @@
+Galactic Mapping
+----------------------------------------------------------------
+Galaxy
+Galactic Arms [N,NW,W,SW,S,SE,E,NE]
+Galactic Sector [core,inner,near,middle,far,outer,deep]
+Star Cluster : Random spacey sounding name
+Star : StarCluster.name + random spacey sounding surname
+Planet : random name OR player chosen name
+	-no duplicate names in the same star system
+	-duplicates are okay outside star system
+City : random name OR player chosen name
+	-no duplicate names in same star system
+	-duplicates okay outside system

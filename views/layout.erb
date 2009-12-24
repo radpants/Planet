@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title><%= APP_NAME %></title>
+    <script src="/jquery.min.js"></script>
+	<% if logged_in? %>
+		<script type="text/javascript">
+			$(function(){
+				setInterval(update,1000);
+				var cash = <%= current_user.cash %>
+				var cash_flow = <%= current_user.cash_flow %>;				
+				function update(){
+					cash += cash_flow;
+					$("#cash").text(cash.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+					$("#money_bar").animate({width:((cash/100000)*500)+"px"},250);
+				}
+				
+				// if the user navigates away, save anything ajaxy that was done
+				$(window).unload(function(){
+					$.post("/save",{"cash":cash});
+				});
+			});
+		</script>
+	<% end %>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+	<!-- A standard layout file, all content is put into the 'yeild' block below. -->
+	<div id="content">
+		<%= partial :_header %>
+	    <%= yield %>
+	</div>
+  </body>
+</html>

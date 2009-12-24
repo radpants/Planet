@@ -1,0 +1,11 @@
+<a href='/galaxy'>Galaxy</a> &gt; <a href="/galaxy/<%= @arm %>"><%= @arm %></a>
+<p>Stars in this galactic arm: <%= @star_count %></p>
+<ul>
+	<li><a href='/galaxy/north/core'>core (<%= Star.count(:galactic_arm=>@arm,:galactic_sector=>:core)%>)</a></li>
+	<li><a href='/galaxy/north/inner'>inner (<%= Star.count(:galactic_arm=>@arm,:galactic_sector=>:inner)%>)</a></li>
+	<li><a href='/galaxy/north/near'>near (<%= Star.count(:galactic_arm=>@arm,:galactic_sector=>:near)%>)</a></li>
+	<li><a href='/galaxy/north/middle'>middle (<%= Star.count(:galactic_arm=>@arm,:galactic_sector=>:middle)%>)</a></li>
+	<li><a href='/galaxy/north/far'>far (<%= Star.count(:galactic_arm=>@arm,:galactic_sector=>:far)%>)</a></li>
+	<li><a href='/galaxy/north/outer'>outer (<%= Star.count(:galactic_arm=>@arm,:galactic_sector=>:outer)%>)</a></li>
+	<li><a href='/galaxy/north/deep'>deep (<%= Star.count(:galactic_arm=>@arm,:galactic_sector=>:deep)%>)</a></li>
+</ul>

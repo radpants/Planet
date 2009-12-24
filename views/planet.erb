@@ -1,0 +1,33 @@
+<a href='/galaxy'>Galaxy</a> &gt; 
+<a href='/galaxy/<%= @arm %>'><%= @arm %></a> &gt;
+<a href='/galaxy/<%= @arm %>/<%= @sector %>'><%= @sector %></a> &gt;
+<a href='/galaxy/<%= @arm %>/<%= @sector %>/<%= @cluster %>'><%= @cluster %></a> &gt;
+<a href='/galaxy/<%= @arm %>/<%= @sector %>/<%= @cluster %>/<%= @star.name %>'><%= @star.name %></a> &gt;
+<%= @planet.name %>
+
+<h2><%= @planet.name.capitalize %></h2>
+<% if @planet.owner_id.nil? %>
+	<h4>Planet Availble <a href='/colonize/<%= @planet.id %>'>[colonize]</a></h4>
+	
+<% else %>
+	<% @owner = User.first(:id => @planet.owner_id) %>
+	<h4>Owned By: <a href="/user/profile/<%= @owner.id %>"><%= @owner.username %></a></h4>
+<% end %>
+	
+<p>
+	Position: <%= @planet.position %> <br/>
+	Size: <%= @planet.size %> <br/>
+	Temperature: <%= @planet.temperature %>&deg;F <br/>
+	Air Quality: <%= @planet.air_quality %>
+</p>
+
+<h4>Cities:</h4>
+<ol>
+	<% @planet.cities( :order => [:position.asc]).each do |city| %>
+		<% if city.planet.owner_id == current_user.id %>
+			<li><a href="/city/<%= city.id %>"><%= city.name %></a></li>
+		<% else %>
+			<li><%= city.name %></li>
+		<% end %>
+	<% end %>
+</ol>

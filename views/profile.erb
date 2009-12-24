@@ -1,0 +1,5 @@
+<h2><%= @user.username %></h2>
+<h4>Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h4>
+<p>
+	Planets Owned: <%= Planet.count( :owner_id => @user.id ) %> <br/>
+</p>

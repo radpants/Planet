@@ -1,0 +1,22 @@
+<div id="header">
+	<div id="left_side">
+		<ul>
+			<li><strong>planet</strong></li>
+			<li><a href='/'>home</a></li>
+			<li><a href='/star_map'>map</a></li>
+			<li><a href='/galaxy'>galaxy</a></li>
+		</ul>
+	</div>
+	<div id="right_side">
+		<ul>
+			<% if logged_in? %>
+				<li><a href='/logout'>logout</a></li>
+				<li><a href='/user/profile/<%=current_user.id%>'>profile</a></li>
+				<li>hello <%= current_user.username %></li>
+			<% else %>
+				<li><a href='/sign_up'>sign up</a></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+

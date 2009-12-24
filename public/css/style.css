@@ -1,0 +1,90 @@
+*{
+	margin:0px;
+	padding:0px;
+	font-family:"Calibri","Gill Sans",sans-serif;
+}
+p{
+	margin:0px 0px 10px 0px;
+}
+a{
+	color:#09f;
+	text-decoration:none;
+}
+	a:hover{
+		color:#0ff;
+	}
+em{
+	color:#888;
+}
+#content{
+	width:600px;
+	margin:50px auto 0px auto;
+}
+#header{
+	position:absolute;
+	top:0px;
+	left:0px;
+	background:#000;
+	color:#ccc;
+	width:100%;
+	height:35px;
+}
+	#header li{
+		list-style:none;
+		display:block;
+		margin:8px;
+	}
+	#header #left_side{
+		float:left;
+	}
+		#header #left_side li{
+			float:left;
+		}
+	#header #right_side{
+		float:right;
+	}
+		#header #right_side li{
+			float:right;
+		}
+form{
+	display:block;
+	margin:10px 0px;
+}
+	input{
+		font-size:14px;
+	}
+	label{
+		width:150px;
+		text-align:right;
+	}
+	input[type="text"]{
+		display:block;
+		margin-bottom:10px;
+	}
+	
+#money_bar{
+	background:#000;
+	height:10px;
+	width:0px;
+}
+
+#city_map td{
+	width:80px;
+	height:80px;
+	border:1px solid #ccc;
+	text-align:center;
+}
+	
+#star_map{
+	width:500px;
+	height:500px;
+	background:#000;
+	border:1px solid black;
+	position:relative;
+}
+	#star_map a img{
+		border:none;
+	}
+	#star_map a:hover img{
+		opacity:1 !important;
+	}

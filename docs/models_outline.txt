@@ -1,0 +1,54 @@
+Models
+----------------------------------------------------------------
+
+Galaxy
+	-could hold statistics on all gameplay
+	-could hold possible names
+Star
+	-name # alias to short_name
+	-short_name
+	-full_name # star_cluster.name + short_name
+	-spectral_type
+	-magnitude
+	-size:enum [dwarf,main sequence,large,giant,supergiant]
+	-galactic_arm:enum
+	-galactic_sector:enum
+	-star_cluster
+	-x_coordinate
+	-y_coordinate
+	-has n, :planets
+Planet
+	-name
+	-star_id
+	-owner_id
+	-position
+	-size
+	-temperature
+	-air_quality
+	-has n, :cities
+City
+	-name
+	-planet_id
+	-owner_id
+	-position
+	-size
+	-climate [desert,tropics,forrest,mountain,ice]
+		desert: +city_growth, +metal, +crystal, -food
+		tropics: +food, -build_time, +happiness, -fuel, -city_growth
+		forrest: +stone, +metal, +build_time, -fuel, -city_growth
+		mountain: ++metal, ++crystals, --build_time, -fuel, --city_growth, -food
+		ice: ---food, ---build_time, ---city_growth, +++crystals, -metal, -stone, -fuel
+	-resource stores
+	-resource capacity
+		resources: lots of stuff
+	-has n, :tiles
+Tile
+	-name
+	-city_id
+	-has a, :building
+	-resources here
+Building
+	-name
+	-type
+	-state
+	

@@ -1,0 +1,11 @@
+<p>Total Stars: <%= @star_count %><p>
+<ul>
+	<li><a href="/galaxy/north">North (<%= Star.count(:galactic_arm=>:north)%>)</a></li>
+	<li><a href="/galaxy/north_west">Northwest (<%= Star.count(:galactic_arm=>:north_west)%>)</a></li>
+	<li><a href="/galaxy/west">West (<%= Star.count(:galactic_arm=>:west)%>)</a></li>
+	<li><a href="/galaxy/south_west">Southwest (<%= Star.count(:galactic_arm=>:south_west)%>)</a></li>
+	<li><a href="/galaxy/south">South (<%= Star.count(:galactic_arm=>:south)%>)</a></li>
+	<li><a href="/galaxy/south_east">Southeast (<%= Star.count(:galactic_arm=>:south_east)%>)</a></li>
+	<li><a href="/galaxy/east">East (<%= Star.count(:galactic_arm=>:east)%>)</a></li>
+	<li><a href="/galaxy/north_east">Northeast (<%= Star.count(:galactic_arm=>:north_east)%>)</a></li>
+</ul>

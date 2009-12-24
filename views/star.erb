@@ -1,0 +1,21 @@
+<a href='/galaxy'>Galaxy</a> &gt; 
+<a href='/galaxy/<%= @arm %>'><%= @arm %></a> &gt;
+<a href='/galaxy/<%= @arm %>/<%= @sector %>'><%= @sector %></a> &gt;
+<a href='/galaxy/<%= @arm %>/<%= @sector %>/<%= @cluster %>'><%= @cluster %></a> &gt;
+<%= @star.name %>
+
+
+<h2><%= @star.full_name %></h2>
+<h4><%= @star.galactic_location %></h4>
+<p>
+	Brightness: <%= @star.brightness %> <br/>
+	Size: <%= @star.size %> <br/>
+	Color: <%= @star.color %> <br/>
+	Location: (<%= @star.x_coordinate %>,<%= @star.y_coordinate %>)
+</p>
+<h4>Planets:</h4>
+<ol>
+	<% @star.planets(:order => [:position.asc]).each do |planet| %>
+		<li><a href="<%= @star.url + "/" + planet.name %>"><%= planet.name %></a></li>
+	<% end %>
+</ol>

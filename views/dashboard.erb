@@ -1,0 +1,11 @@
+<h3>Hello <%= current_user.username %>.</h3>
+<p>
+	Monies: <span id="cash"><%= current_user.cash %></span> <strong>C</strong> <em title='You will earn money at <%=current_user.cash_flow%> credits per second.'>+<%= current_user.cash_flow %>sec</em> <br/>
+</p>
+
+<h3>Your Planets:</h3>
+<ul>
+	<% Planet.all( :owner_id => current_user.id ).each do |planet| %>
+		<li><a href="<%= planet.url %>"><%= planet.name %></a></li>
+	<% end %>
+</ul>

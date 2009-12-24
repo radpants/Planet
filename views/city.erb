@@ -1,0 +1,26 @@
+<h2><%= @city.name %></h2>
+<h4>
+	<%= @city.planet.star.cluster.capitalize %> &gt;
+	<%= @city.planet.star.name.capitalize %> &gt;
+	<a href='<%= @city.planet.url %>'><%= @city.planet.name.capitalize %></a>
+</h4>
+<% if @city.city_size == :empty %>
+	<h4><a href='/settle/<%= @city.id %>'>Settle on <%= @city.planet.name.capitalize %></a></h4>
+<% else %>
+	<table id="city_map">
+		<% @city.size.times do |y| %>
+			<tr>
+				<% @city.size.times do |x| %>
+					<td>
+						<% tile = @city.tiles.first( :position => (y*@city.size)+x) %>
+						<% unless tile.has_building %>
+							<a href='/build/<%= tile.id %>'>build</a>
+						<% else %>
+							<%= @city.tiles.first( :position => (y*@city.size)+x).sunshine %>
+						<% end %>
+					</td>				
+				<% end %>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
